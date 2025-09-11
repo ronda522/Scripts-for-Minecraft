@@ -1,12 +1,14 @@
 import minescript as m
-import numpy as np
+import math
+import time
+degrees = 0
+ 
+m.player_set_orientation(0, 0)
 
-degrees = 10
-
-for i in range(5):
-#    x = np.cos(degrees) 
-#    z = np.sin(degrees)
-#    degrees += np.pi/8
-#    m.player_set_orientation(0,z * 180)
-     m.echo(i)
-    
+while True:
+    m.player_press_use(True)
+    z = math.sin(degrees)
+    degrees += math.radians(1)
+    time.sleep(0.1)
+    m.player_set_orientation(z * 180, 0)
+#    m.echo(i)
